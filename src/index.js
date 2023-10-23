@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/app/store';
 import MainPage from './pages/MainPage';
+import WishlistPage from './pages/WishlistPage';
 
 //Lazy rendering
 const CartPage = React.lazy(() => import("./pages/CartPage"))
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/wishlist",
-        element: <h1>User wishlist</h1>
+        element: <WishlistPage/>
       }
     ]
   }

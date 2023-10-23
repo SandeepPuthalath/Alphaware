@@ -4,7 +4,6 @@ import instance from "../api/instance";
 export const fetchAllProduct = createAsyncThunk("product/fetching", async () => {
     try {
         const response = await instance.post("/product/getAllProduct");
-        console.log(response, "In thunk function")
         return response.data;
     } catch (error) {
         return Promise.reject(error)

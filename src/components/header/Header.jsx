@@ -4,22 +4,30 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiCartAlt } from "react-icons/bi";
 import {MdFavoriteBorder} from "react-icons/md"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartCount = useSelector(s => s.cart.cartCount)
   return (
     <div className="p-5 flex justify-between items-center shadow-md">
       <Link to="/">
-        <Logo/>
+        <Logo />
       </Link>
       <div className="flex text-gray-800 gap-5">
-        <Link to="cart">
-          <BiCartAlt size={22} />
+        <Link to="cart" className="relative">
+          <BiCartAlt size={25} />
+          <span className="block w-3 h-3 absolute text-gray-50 bg-gray-800 top-0 right-0 rounded-full text-[8px] text-center font-bold">
+            {cartCount}
+          </span>
         </Link>
-        <Link to="wishlist">
-          <MdFavoriteBorder size={22} />
+        <Link to="wishlist" className="relative">
+          <MdFavoriteBorder size={25} />
+          <span className="block w-3 h-3 absolute text-gray-50 bg-gray-800 top-0 right-0 rounded-full text-[8px] text-center font-bold">
+             0
+          </span>
         </Link>
         <div className="visible md:hidden cursor-pointer">
-          <GiHamburgerMenu size={22} />
+          <GiHamburgerMenu size={25} />
         </div>
       </div>
     </div>
