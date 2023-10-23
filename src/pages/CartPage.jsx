@@ -15,6 +15,7 @@ const CartPage = () => {
         <h3 className="uppercase text-2xl font-semibold">Cart</h3>
       </div>
       <div className="grid md:grid-cols-2 gap-5">
+        <div className="col-span-1">
         {!cartItems.length && (
           <div className="h-60 flex flex-col justify-center items-center">
             <BiCartAlt size={150} />
@@ -22,7 +23,6 @@ const CartPage = () => {
             <span>Please add something</span>
           </div>
         )}
-        <div className="col-span-1">
           <div className="flex flex-col gap-10">
             {cartItems.map((item) => (
               <ItemCard key={item?.product?._id} {...item} />
